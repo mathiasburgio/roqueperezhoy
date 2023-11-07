@@ -1,0 +1,17 @@
+{
+    "name": "Roque Perez Hoy",
+    "short_name": "Roque Perez Hoy",
+    "theme_color": "#ffffff",
+    "background_color": "#693d72",
+    "display": "standalone",
+    "orientation": "portrait",
+    "scope": "./",
+    "start_url": "./",
+    "icons": [
+        {
+            "src": "./images/favicon2.png",
+            "type": "image/png",
+            "sizes": "400x400"
+        }
+    ]
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("templates/head"); %>
+</head>
+<body>
+    <%- include("templates/header"); %>
+    <%- include("templates/menu"); %>
+    <div id="container" class="container d-none">
+        <div class="row">
+            <main class="col-12">
+                <div id="inicio" class="my-3">
+                    <div class="titulo">Inicio (Admin)</div>
+                    
+                    <div class="card mb-3">
+                        <div class="card-header d-flex justify-content-between">
+                            <span>General</span>
+                            <span>
+                                <button class="btn btn-sm btn-primary" name="subir_imagenv2">Subir imagen V2</button>
+                                <button class="btn btn-sm btn-primary" name="respaldar">Respaldar</button>
+                                <button class="btn btn-sm btn-primary" name="actualizar_cache">Actualizar cache</button>
+                            </span>
+                        </div>
+                        <div class="card-body">
+
+                            <div class="alert my-2 text-center d-none"></div>
+
+                            <div class="border">
+                                <table class="table table-sm table-hover mb-0" name="tabla-general">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Detalle</th>
+                                            <th class="text-right">Valor</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            Progreso
+                        </div>
+                        <div class="card-body">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                            </div>
+                            <div class="border mt-3">
+                                <table class="table table-sm table-hover mb-0" name="tabla-progreso">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Detalle</th>
+                                            <th class="text-right">Estado</th>
+                                            <th class="text-right"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div><!--#inicio-->
+            </main>
+        </div>
+    </div>
+
+
+    <div class="d-none"></div>
+
+    <%- include("templates/scripts") %>
+    <script src="/scripts/AdminInicio.js"></script>
+    <script>
+        var inicio = new AdminInicio();
+        window.onload = () =>{
+            inicio.ini();
+        }
+    </script>
+    <%- include("templates/footer") %>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("templates/head"); %>
+</head>
+<body>
+    <%- include("templates/header"); %>
+    <%- include("templates/menu"); %>
+    <div id="container" class="container d-none">
+        <div class="row">
+            <main class="col-12">
+                <div id="farmacias-de-turno" class="my-3">
+                    <div class="titulo">Farmacias de turno</div>
+                    <div name="cardListado">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="btn-group">
+                                    <button class="btn btn-secondary btn-sm" tab-ref="listado" style="width: 100px;">Listado</button>
+                                    <button class="btn btn-outline-secondary btn-sm" tab-ref="datos" style="width: 100px;">Datos</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6" tab="listado">
+                                        <div class="row mb-3">
+                                            <div class="col">
+                                                <button class="btn btn-light btn-block btn-sm" crud="btNew">Nuevo</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-light btn-block btn-sm" crud="btModify">Modificar</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-light btn-block btn-sm" crud="btDelete">Eliminar</button>
+                                            </div>
+                                        </div>
+                    
+                                        <div id="container-main-table"></div>
+                                    </div>
+                                    <div class="col-sm-6 d-none d-sm-block" tab="datos" crud="fields">
+                                        
+                                        <div class="form-group">
+                                            <label for="">Fecha</label>
+                                            <div class="input-group">
+                                                <input type="month" class="form-control" name="fecha">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-primary" name="btGenerar">Generar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div name="meses">
+                                            ...meses
+                                        </div>
+                                        <button class="btn btn-block btn-sm btn-primary my-2" name="btGuardar" crud="btSave">Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <div class="d-none"></div>
+
+    <%- include("templates/scripts") %>
+    <script src="/scripts/AdminFarmaciasDeTurno.js"></script>
+    <script src="/resources/SimpleCRUD.js"></script>
+    <script>
+        var farmaciasDeTurno = new AdminFarmaciasDeTurno();
+        window.onload = () =>{
+            farmaciasDeTurno.ini();
+        }
+    </script>
+    <%- include("templates/footer") %>
+</body>
+</html>

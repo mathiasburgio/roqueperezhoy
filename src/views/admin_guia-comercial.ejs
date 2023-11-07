@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("templates/head"); %>
+</head>
+<body>
+    <%- include("templates/header"); %>
+    <%- include("templates/menu"); %>
+    <div id="container" class="container d-none">
+        <div class="row">
+            <main class="col-12">
+                <div id="guia-comercial" class="my-3">
+                    <div class="titulo">Guía comercial</div>
+                    <div name="cardListado">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-secondary btn-sm" tab-ref="listado" style="width: 100px;">Listado</button>
+                                    <button class="btn btn-outline-secondary btn-sm" tab-ref="datos" style="width: 100px;">Datos</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6" tab="listado">
+                                        <div class="row mb-3">
+                                            <div class="col">
+                                                <button class="btn btn-light btn-block btn-sm" crud="btNew">Nuevo</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-light btn-block btn-sm" crud="btModify">Modificar</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-light btn-block btn-sm" crud="btDelete">Eliminar</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-light btn-block btn-sm" crud="btAbrir">Abrir</button>
+                                            </div>
+                                        </div>
+                    
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control" crud="txSearch" placeholder="Buscar noticia...">
+                                        </div>
+                    
+                                        <div id="container-main-table"></div>
+                                        <small>
+                                            <i class="fas fa-circle text-danger"></i> 90 días sin act<br>
+                                            <i class="fas fa-circle text-warning"></i> 45 días sin act<br>
+                                            <i class="fas fa-circle text-success"></i>  menos de de 45 de act
+                                        </small>
+                                    </div>
+                                    <div class="col-sm-6 d-none d-sm-block" tab="datos" crud="fields">
+                                        <div class="form-group">
+                                            <label for="">Última actualización</label>
+                                            <input type="text" name="ultima_actualizacion" readonly="true" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Nombre/Razón social</label>
+                                            <input type="text" name="nombre" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Propietario</label>
+                                            <input type="text" name="propietario" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Detalle <button class="btn btn-sm btn-warning" name="llenar_detalle">Llenar</button><button class="btn btn-sm btn-warning ml-2" name="habilitar_detalle">Habilitar</button><button class="btn btn-sm btn-warning ml-2" name="subir_foto">Subir fotos</button></label>
+                                            <textarea id="detalle"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Dirección / Ubicación</label>
+                                            <input type="text" name="direccion" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Local al público</label>
+                                            <select name="local_al_publico" class="form-control">
+                                                <option value="0">No</option>
+                                                <option value="1">Si</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">GEO</label>
+                                            <input type="text" name="geo" readonly="true" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Categoría 1°</label>
+                                            <select name="categoria_1" class="form-control"></select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Categoría 2°</label>
+                                            <select name="categoria_2" class="form-control"></select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Categoría 3°</label>
+                                            <select name="categoria_3" class="form-control"></select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Imagenes</label>
+                                            <div class="row">
+                                                <div class="imagen col my-2" name="img1" style="margin: auto;"></div>
+                                                <div class="imagen col my-2" name="img2" style="margin: auto;"></div>
+                                                <div class="imagen col my-2" name="img3" style="margin: auto;"></div>
+                                                <div class="imagen col my-2" name="img4"style="margin: auto;"></div>
+                                                <div class="imagen col my-2" name="img5" style="margin: auto;"></div>
+                                                <div class="imagen col my-2" name="img6" style="margin: auto;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Datos de contacto</label>
+                                            <div class="border">
+                                                <table class="table table-sm" name="datos_de_contacto">
+                                                    <tbody></tbody>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <td colspan="100%">
+                                                                <button class="btn btn-primary btn-sm btn-block" name="agregar_dato_de_contacto">Agregar</button>
+                                                            </td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Días y horarios</label>
+                                            <div class="table-responsive border">
+                                                <table class="table table-sm" name="dias_horarios">
+                                                    <thead>
+                                                        <tr class="table-info">
+                                                            <th></th>
+                                                            <th>Desde</th>
+                                                            <th>Hasta</th>
+                                                            <th>Desde</th>
+                                                            <th>Hasta</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                Dom
+                                                            </td>
+                                                            <td>
+                                                                <input type="time" class="form-control form-control-sm">
+                                                            </td>
+                                                            <td>
+                                                                <input type="time" class="form-control form-control-sm">
+                                                            </td>
+                                                            <td>
+                                                                <input type="time" class="form-control form-control-sm">
+                                                            </td>
+                                                            <td>
+                                                                <input type="time" class="form-control form-control-sm">
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Delivery</label>
+                                            <select name="delivery" class="form-control">
+                                                <option value="0">No</option>
+                                                <option value="1">Si</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Take away</label>
+                                            <select name="take_away" class="form-control">
+                                                <option value="0">No</option>
+                                                <option value="1">Si</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Activo</label>
+                                            <select name="activo" class="form-control">
+                                                <option value="0">No</option>
+                                                <option value="1">Si</option>
+                                            </select>
+                                        </div>
+                                        <button class="btn btn-block btn-sm btn-primary my-2" name="btGuardar" crud="btSave">Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <div class="d-none"></div>
+
+    <%- include("templates/scripts") %>
+    <script src="/scripts/AdminGuiaComercial.js"></script>
+    <script src="/resources/SimpleCRUD.js"></script>
+    <script src="/resources/cdns/ckeditor/ckeditor.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgzx7SqYEU4gS8ZUeAkmNtTbUg560wy78&callback=initMap&v=weekly" defer></script>
+    <script>
+        var guiaComercial = new AdminGuiaComercial();
+        window.onload = () =>{
+            guiaComercial.ini();
+        }
+        function initMap(){
+            //nada, dejo este callback por las dudas
+            console.log("Google its OK");
+        }
+    </script>
+    <%- include("templates/footer") %>
+</body>
+</html>

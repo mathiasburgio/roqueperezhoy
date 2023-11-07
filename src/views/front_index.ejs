@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("templates/head"); %>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <style>
+        @media only screen and (max-width : 1024px) {
+            body::-webkit-scrollbar {
+              display: none;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <%- include("templates/header"); %>
+    <%- include("templates/menu"); %>
+    <div id="container" class="container d-none">
+        <div class="row">
+            <main class="col-12 col-sm-12 col-md-9 px-0" style="overflow-x: hidden;">
+                <div id="index">
+                    <div id="grande" class="d-none row mb-3">
+                        <div class="col-3">
+                            <div class="list-group mb-3 bg-rph">
+                                <a href="/noticias" class="list-group-item list-group-item-action bg-rph text-light border-bottom" style="border-radius: 0;"><i class="mr-2 fas fa-newspaper"></i>Noticias</a>
+                                <a href="/guia-comercial" class="list-group-item list-group-item-action bg-rph text-light border-bottom"><i class="mr-2 fas fa-location-dot"></i>Guía comercial</a>
+                                <a href="/eventos" class="list-group-item list-group-item-action bg-rph text-light border-bottom"><i class="mr-2 fas fa-calendar"></i>Eventos</a>
+                                <a href="comunidad" class="list-group-item list-group-item-action bg-rph text-light border-bottom"><i class="mr-2 fas fa-face-smile"></i>Comunidad</a>
+                                <a name="emergencias" class="cp list-group-item list-group-item-action bg-rph text-light border-bottom"><i class="mr-2 fas fa-exclamation-triangle"></i>Emergencias</a>
+                                <a href="/farmacias-de-turno" class="list-group-item list-group-item-action bg-rph text-light border-bottom"><i class="mr-2 fas fa-book-medical"></i>Farmacias de turno</a>
+                                <a href="/horarios-de-transportes" class="list-group-item list-group-item-action bg-rph text-light border-bottom"><i class="mr-2 fas fa-bus"></i>Horarios de transportes</a>
+                                <a href="/telefonos-utiles" class="list-group-item list-group-item-action bg-rph text-light border-bottom"><i class="mr-2 fas fa-phone"></i>Teléfonos útiles</a>
+                                <a name="contactanos" class="cp list-group-item list-group-item-action bg-rph text-light" style="border-radius: 0;"><i class="mr-2 fas fa-ellipsis"></i>Contactanos</a>
+                            </div>
+                            <small class="text-muted">Espacio publicitario</small>
+                            <div class="border" name="publicidades_laterales">
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <div id="swiper-principal" class="swiper">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper"></div>
+                                <!-- If we need pagination -->
+                                <div class="swiper-pagination"></div>
+                            
+                                <!-- If we need navigation buttons -->
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+                            </div>
+                            <div class="w-100 mb-5"></div>
+                            <h4 class="titulo" name="titulo-noticias">Noticias</h4>
+                            <div class="mb-3 py-2">
+                                <div id="swiper-noticias" class="swiper">
+                                    <!-- Additional required wrapper -->
+                                    <div class="swiper-wrapper grid-container"></div>
+                                
+                                    <!-- If we need navigation buttons -->
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div>
+                                </div>
+                            </div>
+                            
+                            <h4 class="titulo" name="titulo-eventos">Eventos</h4>
+                            <div class="mb-3 py-2">
+                                <div id="swiper-eventos" class="swiper">
+                                    <!-- Additional required wrapper -->
+                                    <div class="swiper-wrapper"></div>
+                                
+                                    <!-- If we need navigation buttons -->
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div>
+                                </div>
+                            </div>
+                            
+                            <h4 class="titulo" name="titulo-emprendimientos">Emprendimientos <i class="fas fa-star text-warning"></i></h4>
+                            <div class="mb-3 py-2">
+                                <div id="swiper-emprendimientos" class="swiper">
+                                    <!-- Additional required wrapper -->
+                                    <div class="swiper-wrapper"></div>
+                                
+                                    <!-- If we need navigation buttons -->
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div><!--grande-->
+                    <div id="chico" class="d-none">
+                        <div class="d-flex flex-column" style="height: calc(100vh - 64px - 40px); width: 100%;">
+                            <div class="">
+                                <div id="swiper-principal-chico" class="swiper">
+                                    <!-- Additional required wrapper -->
+                                    <div class="swiper-wrapper"></div>
+                                
+                                    <!-- If we need navigation buttons -->
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 text-center text-white bg-rph">
+                                    <table class="w-100 h-100">
+                                        <tbody>
+                                            <tr style="height:20%">
+                                                <td class="w-50">
+                                                    <a href="/noticias">
+                                                        <div style="width:90%; height:85%" class="border-botonera m-auto text-white d-flex justify-content-center align-items-center">
+                                                            <span>
+                                                                <span class="material-symbols-outlined">newspaper</span>
+                                                                <br>
+                                                                Noticias
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="w-50">
+                                                    <a href="/guia-comercial">
+                                                        <div style="width:90%; height:85%" class="border-botonera m-auto text-white d-flex justify-content-center align-items-center">
+                                                            <span>
+                                                                <span class="material-symbols-outlined">storefront</span>
+                                                                <br>
+                                                                Guía comercial
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr style="height:20%">
+                                                <td class="w-50">
+                                                    <a href="/comunidad">
+                                                        <div style="width:90%; height:85%" class="border-botonera m-auto text-white d-flex justify-content-center align-items-center">
+                                                            <span>
+                                                                <span class="material-symbols-outlined">diversity_1</span>
+                                                                <br>
+                                                                Comunidad
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="w-50">
+                                                    <a href="/eventos">
+                                                        <div style="width:90%; height:85%" class="border-botonera m-auto text-white d-flex justify-content-center align-items-center">
+                                                            <span>
+                                                                <span class="material-symbols-outlined">celebration</span>
+                                                                <br>
+                                                                Eventos
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr style="height:20%">
+                                                <td class="w-50" name="emergencias">
+                                                    <div style="width:90%; height:85%" class="border-botonera m-auto text-white d-flex justify-content-center align-items-center">
+                                                        <span>
+                                                            <span class="material-symbols-outlined">e911_emergency</span>
+                                                            <br>
+                                                            Emergencias
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td class="w-50">
+                                                    <a href="/farmacias-de-turno">
+                                                        <div style="width:90%; height:85%" class="border-botonera m-auto text-white d-flex justify-content-center align-items-center">
+                                                            <span>
+                                                                <span class="material-symbols-outlined">home_health</span>
+                                                                <br>
+                                                                Farma. de turno
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr style="height:20%">
+                                                <td class="w-50">
+                                                    <a href="/horarios-de-transportes">
+                                                        <div style="width:90%; height:85%" class="border-botonera m-auto text-white d-flex justify-content-center align-items-center">
+                                                            <span>
+                                                                <span class="material-symbols-outlined">departure_board</span>
+                                                                <br>
+                                                                <span style="font-size:0.8rem">Horarios de transportes</span>
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="w-50">
+                                                    <a href="/telefonos-utiles">
+                                                        <div style="width:90%; height:85%" class="border-botonera m-auto text-white d-flex justify-content-center align-items-center">
+                                                            <span>
+                                                                <span class="material-symbols-outlined">phone_iphone</span>
+                                                                <br>
+                                                                Teléfonos útiles
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <aside class="col-12 col-sm-12 col-md-3"></aside>
+        </div>
+    </div>
+    <div class="d-none">
+        <div id="template_swipe_slide_principal">
+            <div class="swiper-slide" style="position:relative">
+                <a href="" class="no-a">
+                    <img name="imagen" class="aspect-ratio-169" style="width:100%; max-height:100%; object-fit:cover">
+                    <div name="texto" class="w-100 font-weight-bold" style="max-height:3.7rem; font-family:RobotoRegular; padding: 10px;">
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div id="template_swipe_slide_secundario">
+            <div class="swiper-slide">
+                <a href="" class="no-a">
+                    <img name="imagen" class="aspect-ratio-169" style="width:100%; max-height:100%; object-fit:cover">
+                    <div name="texto" class="mt-1" style="max-height:4.4rem; font-family:RobotoRegular;">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <%- include("templates/scripts") %>
+    <script src="/scripts/FrontIndex.js"></script>
+    <script>
+        var index = new FrontIndex();
+        window.onload = () =>{
+            //hola mundo
+            index.ini();
+        }
+    </script>
+    <%- include("templates/footer") %>
+</body>
+</html>

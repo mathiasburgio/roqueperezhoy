@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("templates/head"); %>
+</head>
+<body>
+    <%- include("templates/header"); %>
+    <%- include("templates/menu"); %>
+    <div id="container" class="container mt-3 d-none">
+        <div class="row">
+            <main class="col-12 col-sm-12 col-md-9">
+                <div class="titulo">Comunidad</div>
+                <div class="text-right">
+                    <a name="share_facebook" href="https://www.facebook.com/sharer.php?u=https://roqueperezhoy.com.ar/comunidad" target="_blank" class="btn btn-sm text-white" style="background-color: var(--facebook);"><i class="fab fa-facebook"></i></a>
+                    <a name="share_whatsapp" href="https://wa.me/?text=https://roqueperezhoy.com.ar/comunidad" target="_blank" class="btn btn-sm text-white" style="background-color: var(--whatsapp);"><i class="fab fa-whatsapp"></i></a>
+                    <a name="share_twitter" href="https://twitter.com/intent/tweet?text=comunidad%20RoquePerezHoy&url=https://roqueperezhoy.com.ar/comunidad" target="_blank" class="btn btn-sm text-white" style="background-color: var(--twitter);"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div id="comunidad" class="mt-3">
+                    
+                </div>
+                <div class="text-center mb-3">
+                    <button class="btn btn-primary w-50" name="cargar_mas">Cargar más</button>
+                </div>
+                <div class="titulo mt-5">Últimas noticias</div>
+                <div class="row" name="otras-noticias">
+        
+                </div>
+            </main>
+            <aside class="col-12 col-sm-12 col-md-3" name="publicidades_laterales">
+                <div class="titulo">Publicidad</div>
+            </aside>
+            <aside class="col-12 col-sm-12 col-md-3" name="publicidades_inferiores"></aside>
+        </div>
+    </div>
+    <div class="d-none">
+        <div id="template_card">
+            <div class="card m-auto  shadow-sm" style="max-width: 470px; margin-bottom: 30px !important;">
+                <img name="imagen" class="card-img-top" style="max-height: 250px; object-fit: contain; background:var(--light)" alt="imagen de comunidad" publicacion="-1">
+                <div class="card-body">
+                    <h5 name="titulo" class="card-title">Card title</h5>
+                    <p name="cuerpo" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <small class="text-muted" name="fecha"></small>
+                    <p name="contador" class="text-center font-weight-bold mb-0">Exitos: 10</p>
+                </div>
+                <div class="card-footer d-flex justify-content-around">
+                    <span>
+                        <button class="btn btn-outline-danger" name="like" onclick="this. blur();"><i class="fas fa-heart"></i></button>
+                        <a class="btn btn-warning d-none" name="emprendimiento"><i class="fas fa-store"></i></a>
+                    </span>
+                    <span>
+                        <a name="share_facebook" href="https://www.facebook.com/sharer.php?u=https://roqueperezhoy.com.ar/horarios-de-transportes" target="_blank" class="btn text-white" style="background-color: var(--facebook);"><i class="fab fa-facebook"></i></a>
+                        <a name="share_whatsapp" href="https://wa.me/?text=https://roqueperezhoy.com.ar/horarios-de-transportes" target="_blank" class="btn text-white" style="background-color: var(--whatsapp);"><i class="fab fa-whatsapp"></i></a>
+                        <a name="share_twitter" href="https://twitter.com/intent/tweet?text=horarios-de-transportes%20RoquePerezHoy&url=https://roqueperezhoy.com.ar/horarios-de-transportes" target="_blank" class="btn text-white" style="background-color: var(--twitter);"><i class="fab fa-twitter"></i></a>
+                    </span>
+                </div>
+            </div>
+            
+        </div>
+        <div id="template_noticia">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+                <div class="card cp shadow-sm mb-4" style="position: relative;">
+                    <a href="" class="no-a">
+                        <img name="imagen" src="#" class="card-img-top img-169" alt="noticia">
+                        <div class="card-body">
+                            <div name="etiqueta" class="h1 d-none" style="position:absolute; top:5px; right:5px"><i class="fas fa-circle-play text-light"></i></div>
+                            <h5 class="card-title d-none" name="titulo">titulo</h5>
+                            <p class="card-text" name="titulo2">titulo 2</p>
+                            <span class="badge badge-info"><i class="fas fa-calendar"></i> <span name="fecha">fecha</span></span>
+                            <div class="text-right text-primary cp">Ver noticia</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include("templates/scripts") %>
+    <script src="/scripts/FrontComunidad.js"></script>
+    <script>
+        var comunidad = new FrontComunidad();
+        window.onload = () =>{
+            comunidad.ini();
+        }
+    </script>
+    <%- include("templates/footer") %>
+</body>
+</html>

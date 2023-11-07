@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("templates/head"); %>
+</head>
+<body>
+    <%- include("templates/header"); %>
+    <%- include("templates/menu"); %>
+    <div id="container" class="container mt-3 d-none">
+        <div class="titulo">Publicidad</div>
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2 col-lg-8 offsel-lg-2">
+                <button class="btn btn-primary d-none" name="copiar_publicidad">Copiar publicidad</button>
+                <button class="btn btn-primary d-none" name="copiar_detalle">Copiar detalle</button>
+                <div class="card mt-2">
+                    <div class="card-body">
+                        <div name="texto_redes" class="border"></div>
+                        <img name="imagen" class="img-169 mt-2" alt="">
+                        <a target="_blank"" class="btn btn-success btn-block mt-2" name="contactar">¡CONTACTAR!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-none">
+    </div>
+
+    <%- include("templates/scripts") %>
+    <script src="/scripts/FrontPublicidad.js"></script>
+    <script>
+        var publicidad = new FrontPublicidad();
+        window.onload = () =>{
+            publicidad.ini();
+        }
+    </script>
+    <%- include("templates/footer") %>
+</body>
+</html>

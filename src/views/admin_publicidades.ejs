@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("templates/head"); %>
+</head>
+<body>
+    <%- include("templates/header"); %>
+    <%- include("templates/menu"); %>
+    <div id="container" class="container d-none">
+        <div class="row">
+            <main class="col-12">
+                <div id="publicidades" class="my-3">
+                    <div class="titulo">Publicidades</div>
+                    <div name="cardListado">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-secondary btn-sm" tab-ref="listado" style="width: 100px;">Listado</button>
+                                    <button class="btn btn-outline-secondary btn-sm" tab-ref="datos" style="width: 100px;">Datos</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6" tab="listado">
+                                        <div class="row mb-3">
+                                            <div class="col">
+                                                <button class="btn btn-light btn-block btn-sm" crud="btNew">Nuevo</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-light btn-block btn-sm" crud="btModify">Modificar</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-light btn-block btn-sm" name="btResumen">Resumen</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-info btn-block btn-sm" disabled name="btCompartir">Compartir</button>
+                                            </div>
+                                        </div>
+                                        <div id="container-main-table" class="border"></div>
+                                    </div>
+                                    <div class="col-sm-6 d-none d-sm-block" tab="datos" crud="fields">
+                                        <div class="form-group">
+                                            <label for="">Tipo</label>
+                                            <div class="input-group">
+                                                <select name="pid" class="form-control"></select>
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-primary" name="btSeleccionarReferencia"><i class="fas fa-hand-pointer"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Nombre</label>
+                                            <input type="text" name="nombre" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Imagen</label>
+                                            <div class="row">
+                                                <div class="imagen col my-2" name="img1" style="margin: auto;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Texto redes</label>
+                                            <textarea id="detalle" name="texto_redes" class="form-control"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Enlace (LINK)</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <select name="prefijo" class="form-control">
+                                                        <option value="">Sin prefijo</option>
+                                                        <option value="https://">WEB (https://)</option>
+                                                        <option value="tel:+549{telefono}">Teléfono (tel:)</option>
+                                                        <option value="mailto:">Email (mailto:)</option>
+                                                        <option value="https://wa.me/549{telefono}">Whatsapp (reemplazar)</option>
+                                                    </select>
+                                                </div>
+                                                <input type="text" name="enlace" class="form-control">
+                                            </div>
+                                            <small class="text-muted">Para teléfonos/whatsapp no use simbolos</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Fecha inicio</label>
+                                            <input type="date" name="fecha_inicio" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Días de actividad</label>
+                                            <input type="number" name="dias" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Fecha fin</label>
+                                            <input type="date" name="fecha_fin" readonly class="form-control">
+                                        </div>
+                                        <div class="form-group d-none">
+                                            <label for="">Valor</label>
+                                            <input type="number" name="valor" readonly class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Prioridad</label>
+                                            <select name="prioridad" class="form-control">
+                                                <option value="0">0- No visible</option>
+                                                <option value="1">1- Aparece primero</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5- Aparece última</option>
+                                            </select>
+                                        </div>
+                                        <button class="btn btn-block btn-sm btn-primary mt-2" name="btGuardar" crud="btSave">Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--#publicidades-->
+            </main>
+        </div>
+    </div>
+
+    <div class="d-none">
+        <div id="modal_resumen">
+            <div class="form-group">
+                <label for="">Mes</label>
+                <input type="month" class="form-control">
+            </div>
+
+            <div class="border">
+                <table class="table table-sm mb-0">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Detalle</th>
+                            <th class="text-right">Cantidad</th>
+                            <th class="text-right">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                    <tfoot>
+                        <tr class="table-success">
+                            <td>TOTAL</td>
+                            <td class="text-right">0</td>
+                            <td class="text-right">0</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+    <%- include("templates/scripts") %>
+    <script src="/scripts/AdminPublicidades.js"></script>
+    <script src="/resources/SimpleCRUD.js"></script>
+    <script src="/resources/cdns/ckeditor/ckeditor.js"></script>
+    <script>
+        var publicidades = new AdminPublicidades();
+        window.onload = () =>{
+            publicidades.ini();
+        }
+    </script>
+    <%- include("templates/footer") %>
+</body>
+</html>

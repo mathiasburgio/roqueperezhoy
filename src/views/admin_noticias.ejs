@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("templates/head"); %>
+</head>
+<body>
+    <%- include("templates/header"); %>
+    <%- include("templates/menu"); %>
+    <div id="container" class="container d-none">
+        <div class="row">
+            <main class="col-12">
+                <div id="noticias" class="my-3">
+                    <div class="titulo">Noticias</div>
+                    <div name="cardListado">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-secondary btn-sm" tab-ref="listado" style="width: 100px;">Listado</button>
+                                    <button class="btn btn-outline-secondary btn-sm" tab-ref="datos" style="width: 100px;">Datos</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6" tab="listado">
+                                        <div class="row mb-3">
+                                            <div class="col">
+                                                <button class="btn btn-light btn-block btn-sm" crud="btNew">Nuevo</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-light btn-block btn-sm" crud="btModify">Modificar</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-light btn-block btn-sm" crud="btDelete">Eliminar</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-light btn-block btn-sm" crud="btAbrir">Abrir</button>
+                                            </div>
+                                        </div>
+                    
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control" crud="txSearch" placeholder="Buscar noticia...">
+                                        </div>
+                    
+                                        <div id="container-main-table" class="border"></div>
+                                    </div>
+                                    <div class="col-sm-6 d-none d-sm-block" tab="datos" crud="fields">
+                                        <div class="form-group">
+                                            <label for="">Título</label>
+                                            <input type="text" name="titulo" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Bajada (subtitulo)</label>
+                                            <input type="text" name="bajada" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Fecha</label>
+                                            <input type="datetime-local" name="fecha" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Detalle 
+                                            <button class="btn btn-sm btn-warning" name="llenar_detalle">Llenar</button>
+                                            <button class="btn btn-sm btn-warning ml-2" name="habilitar_detalle">Habilitar</button>
+                                            <button class="btn btn-sm btn-warning ml-2" name="subir_foto">Subir fotos</button>
+                                            <button class="btn btn-sm btn-warning ml-2" name="subir_fotov2">Subir fotos v2</button>
+                                            </label>
+                                            <textarea id="detalle"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Imagenes</label>
+                                            <div class="row">
+                                                <div class="imagen col my-2" name="img1" style="margin: auto;"></div>
+                                                <div class="imagen col my-2" name="img2" style="margin: auto;"></div>
+                                                <div class="imagen col my-2" name="img3" style="margin: auto;"></div>
+                                                <div class="imagen col my-2" name="img4"style="margin: auto;"></div>
+                                                <div class="imagen col my-2" name="img5" style="margin: auto;"></div>
+                                                <div class="imagen col my-2" name="img6" style="margin: auto;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Pie de foto</label>
+                                            <input type="text" name="pie_de_foto" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Video</label>
+                                            <input type="text" name="video" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Categoría</label>
+                                            <select name="categoria" class="form-control"></select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Tags</label>
+                                            <input type="text" name="tags" class="form-control">
+                                            <small class="text-muted">Separados por <b>;</b></small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Autor</label>
+                                            <input type="text" name="autor" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Fuente</label>
+                                            <input type="text" name="fuente" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Activa</label>
+                                            <select name="activa" class="form-control">
+                                                <option value="0">No</option>
+                                                <option value="1">Si</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group d-none">
+                                            <label for="">Aparecer en marquesina</label>
+                                            <select name="marquesina" class="form-control">
+                                                <option value="0">No</option>
+                                                <option value="1">Si</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group d-none">
+                                            <label for="">Aparecer en Slider principal</label>
+                                            <select name="principal" class="form-control">
+                                                <option value="0">No</option>
+                                                <option value="1">Si</option>
+                                            </select>
+                                        </div>
+                                        <button class="btn btn-block btn-sm btn-primary mt-2" name="btGuardar" crud="btSave">Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--#noticias-->
+            </main>
+        </div>
+    </div>
+
+    <div class="d-none"></div>
+
+    <%- include("templates/scripts") %>
+    <script src="/scripts/AdminNoticias.js"></script>
+    <script src="/resources/SimpleCRUD.js"></script>
+    <script src="/resources/cdns/ckeditor/ckeditor.js"></script>
+    <script>
+        var noticias = new AdminNoticias();
+        window.onload = () =>{
+            noticias.ini();
+        }
+    </script>
+    <%- include("templates/footer") %>
+</body>
+</html>

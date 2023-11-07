@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("templates/head"); %>
+</head>
+<body>
+    <%- include("templates/header"); %>
+    <%- include("templates/menu"); %>
+    <div id="container" class="container d-none">
+        <div class="row">
+            <main class="col-12">
+                <div class="titulo">Ahora</div>
+                <div class="card" id="ahora">
+                    <div class="card-body">
+                        <div class="mb-2">
+                            <div class="alert alert-light">
+                                Hola mundo!
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Texto</label>
+                            <input type="text" name="texto" class="form-control">
+                        </div>    
+                        <div class="form-group">
+                            <label for="">URL</label>
+                            <input type="text" name="url" class="form-control">
+                        </div>    
+                        <div class="form-group">
+                            <label for="">Color</label>
+                            <select name="color" class="form-control" id="">
+                                <option value="bg-light text-dark">Light</option>
+                                <option value="bg-dark text-white">Dark</option>
+                                <option value="bg-primary text-white">Primary</option>
+                                <option value="bg-secondary text-white">Secondary</option>
+                                <option value="bg-warning text-dark">Warning</option>
+                                <option value="bg-danger text-white">danger</option>
+                                <option value="bg-success text-white">Success</option>
+                            </select>
+                        </div> 
+                        <div class="form-group">
+                            <label for="">Activo</label>
+                            <select name="activo" class="form-control" id="">
+                                <option value="1">Si</option>
+                                <option value="0" selected>No</option>
+                            </select>
+                        </div>         
+                        <div class="text-right">
+                            <button class="btn btn-primary" name="guardar">Guardar</button>
+                        </div>
+                    </div><!--card-body-->
+                </div>
+            </main>
+        </div>
+    </div>
+
+
+    <div class="d-none"></div>
+
+    <%- include("templates/scripts") %>
+    <script src="/scripts/AdminAhora.js"></script>
+    <script>
+        var ahora = new AdminAhora();
+        window.onload = () =>{
+            ahora.ini();
+        }
+    </script>
+    <%- include("templates/footer") %>
+</body>
+</html>

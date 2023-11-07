@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("templates/head"); %>
+</head>
+<body>
+    <%- include("templates/header"); %>
+    <%- include("templates/menu"); %>
+    <div id="container" class="container d-none">
+        <div class="row">
+            <main class="col-12">
+                <div id="notificaciones" class="my-3">
+                    <div class="titulo">Notificaciones</div>
+                    <div name="cardListado">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-secondary btn-sm" tab-ref="listado" style="width: 100px;">Listado</button>
+                                    <button class="btn btn-outline-secondary btn-sm" tab-ref="datos" style="width: 100px;">Datos</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6" tab="listado">
+                                        <div class="row mb-3">
+                                            <div class="col">
+                                                <button class="btn btn-light btn-block btn-sm" crud="btNew">Crear</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-light btn-block btn-sm" name="btEnviar">Enviar</button>
+                                            </div>
+                                        </div>
+                                        <div id="container-main-table" class="border"></div>
+                                    </div>
+                                    <div class="col-sm-6 d-none d-sm-block" tab="datos" crud="fields">
+                                        <div class="form-group">
+                                            <label for="">Tipo de referencia</label>
+                                            <div class="input-group">
+                                                <select name="tipo_referencia" class="form-control">
+                                                    <option value="0">Ninguna</option>
+                                                    <option value="noticia">Noticia</option>
+                                                    <option value="evento">Evento</option>
+                                                </select>
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-primary" name="btSeleccionarReferencia"><i class="fas fa-hand-pointer"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Título</label>
+                                            <input type="text" name="titulo" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Cuerpo</label>
+                                            <textarea type="text" name="cuerpo" class="form-control"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Imagen</label>
+                                            <div class="row">
+                                                <div class="imagen col my-2" name="img1" style="margin: auto;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Enlace / Url</label>
+                                            <input type="text" name="url" class="form-control">
+                                        </div>
+                                        <button class="btn btn-block btn-sm btn-primary mt-2" name="btGuardar" crud="btSave">Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--#publicidades-->
+            </main>
+        </div>
+    </div>
+
+    <div class="d-none">
+        <div id="modal_resumen">
+            <div class="form-group">
+                <label for="">Mes</label>
+                <input type="month" class="form-control">
+            </div>
+
+            <div class="border">
+                <table class="table table-sm mb-0">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Detalle</th>
+                            <th class="text-right">Cantidad</th>
+                            <th class="text-right">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                    <tfoot>
+                        <tr class="table-success">
+                            <td>TOTAL</td>
+                            <td class="text-right">0</td>
+                            <td class="text-right">0</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+    <%- include("templates/scripts") %>
+    <script src="/scripts/AdminNotificaciones.js"></script>
+    <script src="/resources/SimpleCRUD.js"></script>
+    <script>
+        var notificaciones = new AdminNotificaciones();
+        window.onload = () =>{
+            notificaciones.ini();
+        }
+    </script>
+    <%- include("templates/footer") %>
+</body>
+</html>

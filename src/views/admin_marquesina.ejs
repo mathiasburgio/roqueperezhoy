@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("templates/head"); %>
+</head>
+<body>
+    <%- include("templates/header"); %>
+    <%- include("templates/menu"); %>
+    <div id="container" class="container d-none">
+        <div class="row">
+            <main class="col-12">
+                <div id="marquesina" class="my-3">
+                    <div class="titulo">Marquesina / Principal</div>
+                    <div name="cardListado">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-secondary btn-sm" tab-ref="listado" style="width: 100px;">Listado</button>
+                                    <button class="btn btn-outline-secondary btn-sm" tab-ref="datos" style="width: 100px;">Datos</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6" tab="listado">
+                                        <div class="row mb-3">
+                                            <div class="col">
+                                                <button class="btn btn-light btn-block btn-sm" crud="btNew">Nuevo</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-light btn-block btn-sm" crud="btModify">Modificar</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-light btn-block btn-sm" crud="btDelete">Eliminar</button>
+                                            </div>
+                                        </div>
+                                        <div id="container-main-table" class="border"></div>
+                                    </div>
+                                    <div class="col-sm-6 d-none d-sm-block" tab="datos" crud="fields">
+                                        <div class="form-group">
+                                            <label for="">Tipo de publicación</label>
+                                            <select name="tipo_publicacion" class="form-control">
+                                                <option value="0">-=Seleccionar=-</option>
+                                                <option value="marquesina">Marquesina</option>
+                                                <option value="slider">Slider</option>
+                                                <option value="marquesina y slider">Marquesina y Slider</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Tipo de referencia</label>
+                                            <div class="input-group">
+                                                <select name="tipo_referencia" class="form-control">
+                                                    <option value="0">Ninguna</option>
+                                                    <option value="noticia">Noticia</option>
+                                                    <option value="evento">Evento</option>
+                                                    <option value="poi">POI</option>
+                                                </select>
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-primary" name="btSeleccionarReferencia"><i class="fas fa-hand-pointer"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Texto</label>
+                                            <input type="text" name="texto" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Enlace</label>
+                                            <input type="text" name="enlace" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Imagen</label>
+                                            <div class="row">
+                                                <div class="imagen col my-2" name="img1" style="margin: auto;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Vencimiento</label>
+                                            <input type="date" name="vencimiento" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Icono</label>
+                                            <div class="input-group mb-3">
+                                                <select class="form-control" name="icono">
+                                                </select>
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="label-icono"><i class="fas fa-circle"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">color</label>
+                                            <div class="input-group mb-3">
+                                                <select name="color" class="form-control">
+                                                    <option value="text-dark bg-light" class="text-dark bg-light">Dark</option>
+                                                    <option value="text-light bg-dark" class="text-light bg-dark">Light</option>
+                                                    <option value="text-primary" class="text-primary">Primary</option>
+                                                    <option value="text-secondary" class="text-secondary">Secondary</option>
+                                                    <option value="text-warning bg-dark" class="text-warning bg-dark">Warning</option>
+                                                    <option value="text-danger" class="text-danger">Danger</option>
+                                                    <option value="text-success" class="text-success">Success</option>
+                                                </select>
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="label-color"><i class="fas fa-circle"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="">Prioridad</label>
+                                            <select name="prioridad" class="form-control">
+                                                <option value="1">1 (aparece primero)</option>
+                                                <option value="2">2</option>
+                                                <option value="3" selected>3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5 (aparece último)</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Activo</label>
+                                            <select name="activo" class="form-control">
+                                                <option value="0">No</option>
+                                                <option value="1">Si</option>
+                                            </select>
+                                        </div>
+                                        <button class="btn btn-block btn-sm btn-primary mt-2" name="btGuardar" crud="btSave">Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--#marquesina-->
+            </main>
+        </div>
+    </div>
+
+    <div class="d-none"></div>
+
+    <%- include("templates/scripts") %>
+    <script src="/scripts/AdminMarquesina.js"></script>
+    <script src="/resources/SimpleCRUD.js"></script>
+    <script src="/resources/cdns/ckeditor/ckeditor.js"></script>
+    <script>
+        var marquesina = new AdminMarquesina();
+        window.onload = () =>{
+            marquesina.ini();
+        }
+    </script>
+    <%- include("templates/footer") %>
+</body>
+</html>

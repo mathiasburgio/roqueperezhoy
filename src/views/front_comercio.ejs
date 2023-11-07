@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("templates/head"); %>
+</head>
+<body>
+    <%- include("templates/header"); %>
+    <%- include("templates/menu"); %>
+    <div id="container" class="container mt-3 d-none">
+        <div class="row">
+            <main class="col-12 col-sm-12 col-md-9">
+                <div class="text-right">
+                    <a name="share_facebook" href="https://www.facebook.com/sharer.php?u=https://roqueperezhoy.com.ar/guia-comercial" target="_blank" class="btn btn-sm text-white" style="background-color: var(--facebook);"><i class="fab fa-facebook"></i></a>
+                    <a name="share_whatsapp" href="https://wa.me/?text=https://roqueperezhoy.com.ar/guia-comercial" target="_blank" class="btn btn-sm text-white" style="background-color: var(--whatsapp);"><i class="fab fa-whatsapp"></i></a>
+                    <a name="share_twitter" href="https://twitter.com/intent/tweet?text=guia-comercial%20RoquePerezHoy&url=https://roqueperezhoy.com.ar/guia-comercial" target="_blank" class="btn btn-sm text-white" style="background-color: var(--twitter);"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div id="comercio" class="mt-3">
+                    <div id="nota">
+                        <h3 name="nombre"></h3>
+                        <div class="d-flex  justify-content-between">
+                            <span name="abierto" class="text-secondary d-flex align-items-end"><span style="font-size: 1.1rem;" class="badge badge-warning">Ahora: cerrado</span></span>
+                            <button class="btn btn-light" name="favorito"><i class="fas fa-heart text-danger"></i> Favorito</button>
+                        </div>
+                        <div class="aspect-ratio-169 mt-2">
+                            <div id="swiper-principal" class="swiper aspect-ratio-169 d-none">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper"></div>
+                                <!-- If we need pagination -->
+                                <div class="swiper-pagination"></div>
+                            
+                                <!-- If we need navigation buttons -->
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+                            </div>
+                            <iframe id="myVideo" class="aspect-ratio-169 d-none" style="width: 100%; border:none;"></iframe>
+                        </div>
+                        <div class="titulo mt-4">Detalle</div>
+                        <div class="primera-letra card-detalle" name="detalle"></div>
+                        <div class="titulo mt-4">Horarios</div>
+                        <div name="horarios" class="border mb-4">
+                            <table class="table table-sm mb-0">
+                                <thead>
+                                    <tr class="table-info">
+                                        <th></th>
+                                        <th class="text-right">Mañana</th>
+                                        <th class="text-right">Tarde</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="font-weight-bold">Dom</td>
+                                        <td class="text-right"></td>
+                                        <td class="text-right"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-weight-bold">Lun</td>
+                                        <td class="text-right"></td>
+                                        <td class="text-right"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-weight-bold">Mar</td>
+                                        <td class="text-right"></td>
+                                        <td class="text-right"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-weight-bold">Mie</td>
+                                        <td class="text-right"></td>
+                                        <td class="text-right"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-weight-bold">Jue</td>
+                                        <td class="text-right"></td>
+                                        <td class="text-right"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-weight-bold">Vie</td>
+                                        <td class="text-right"></td>
+                                        <td class="text-right"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-weight-bold">Sab</td>
+                                        <td class="text-right"></td>
+                                        <td class="text-right"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="titulo mt-4">Datos de contacto</div>
+                                <div class="" name="datos_de_contacto">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="titulo mt-4">Geo</div>
+                                <div name="ubicacion" class="mb-2">
+                                    <b>Ubicación: </b><span></span>
+                                </div>
+                                <div id="mapa" style="height:30vh"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="titulo mt-4">Más info</div>     
+                        <div class="my-2" name="propietario">
+                            <b>Propietario: </b> <span></span>
+                        </div>
+                        <div class="my-2" name="delivery">
+                            <b>Delivery: </b> <span class="badge badge-danger">No</span>
+                        </div>
+                        <div class="my-2" name="take_away">
+                            <b>Take away: </b> <span class="badge badge-danger">No</span>
+                        </div>
+                        <div class="my-2" name="categorias">
+                            <b>Categorías:</b>
+                            <div></div>
+                        </div>
+                        <small class="text-muted">Información actualizada: <span name="fecha"></span></small>
+                    </div>
+                    <div class="titulo mt-5">OTROS EMPRENDIMIENTOS</div>
+                    <div class="row" name="otros-emprendimientos">
+        
+                    </div>
+                </div>
+            </main>
+            <aside class="col-12 col-sm-12 col-md-3" name="publicidades_laterales">
+                <div class="titulo">Publicidad</div>
+            </aside>
+            <aside class="col-12 col-sm-12 col-md-3" name="publicidades_inferiores"></aside>
+        </div>
+    </div>
+    <div class="d-none">
+        <div id="template_comercio">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="card cp shadow-sm mb-4" style="position:relative" poi="0" ind="0">
+                    <a class="no-a">
+                        <div name="etiqueta" class="h3 d-none" style="position:absolute; top:5px; right:5px"><i class="fas fa-star text-warning"></i></div>
+                        <img name="imagen" class="card-img-top img-169" alt="poi">
+                        <div class="card-body">
+                            <h5 class="card-title" name="titulo"></h5>
+                            <p class="card-text" name="titulo2"></p>
+                            <span class="badge badge-info" name="categoria_1">Profesionales</span>
+                            <span class="badge badge-warning" name="abierto"><i class="fas fa-clock"></i></span>
+                            <span class="badge badge-light" name="favorito"><i class="fas fa-heart text-danger"></i> Favoritos</span>
+                            
+                            <div class="text-right text-primary cp">+ info</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include("templates/scripts") %>
+    <script src="/scripts/FrontComercio.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgzx7SqYEU4gS8ZUeAkmNtTbUg560wy78&callback=initMap&v=weekly" defer></script>
+    <script>
+        var comercio = new FrontComercio();
+        window.onload = () =>{
+            comercio.ini();
+        }
+        function initMap(){
+            //nada, dejo este callback por las dudas
+            console.log("Google its OK");
+        }
+    </script>
+    <%- include("templates/footer") %>
+</body>
+</html>

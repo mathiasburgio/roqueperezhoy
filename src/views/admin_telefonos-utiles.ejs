@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("templates/head"); %>
+</head>
+<body>
+    <%- include("templates/header"); %>
+    <%- include("templates/menu"); %>
+    <div id="container" class="container d-none">
+        <div class="row">
+            <main class="col-12">
+                <div id="telefonos-utiles" class="my-3">
+                    <div class="titulo">Teléfonos útiles</div>
+                    <div name="cardListado">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-secondary btn-sm" tab-ref="listado" style="width: 100px;">Listado</button>
+                                    <button class="btn btn-outline-secondary btn-sm" tab-ref="datos" style="width: 100px;">Datos</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6" tab="listado">
+                                        <div class="row mb-3">
+                                            <div class="col">
+                                                <button class="btn btn-light btn-block btn-sm" crud="btNew">Nuevo</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-light btn-block btn-sm" crud="btModify">Modificar</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-light btn-block btn-sm" crud="btDelete">Eliminar</button>
+                                            </div>
+                                        </div>
+                                        <div id="container-main-table" class="border"></div>
+                                    </div>
+                                    <div class="col-sm-6 d-none d-sm-block" tab="datos" crud="fields">
+                                        <div class="form-group">
+                                            <label for="">POI</label>
+                                            <div class="input-group">
+                                                <input type="text" readonly="true" name="_poi" class="form-control">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-primary" name="btSeleccionarPoi" field="_poi"><i class="fas fa-hand-pointer"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Nombre</label>
+                                            <input type="text" name="nombre" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Nota</label>
+                                            <input type="text" name="nota" class="form-control">
+                                            <small class="text-muted">*En caso de necesitar aclara algo (Ej. De vacaciones hasta dd/mm)</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Datos de contacto</label>
+                                            <div class="table-responsive border" name="datos_de_contacto">
+                                                <table class="table table-sm">
+                                                    <thead class="thead-dark">
+                                                        <tr>
+                                                            <th>Departamento</th>
+                                                            <th>Tipo</th>
+                                                            <th>Valor</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody></tbody>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <td colspan="100%">
+                                                                <button class="btn btn-block btn-primary btn-sm" name="btAgregarDatoDeContacto">Agregar dato</button>
+                                                            </td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Activo</label>
+                                            <select name="activo" class="form-control">
+                                                <option value="0">No</option>
+                                                <option value="1">Si</option>
+                                            </select>
+                                        </div>
+                                        <button class="btn btn-block btn-sm btn-primary mt-2" name="btGuardar" crud="btSave">Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--#telefonos-utiles-->
+            </main>
+        </div>
+    </div>
+    <div class="d-none"></div>
+    <%- include("templates/scripts") %>
+    <script src="/scripts/AdminTelefonosUtiles.js"></script>
+    <script src="/resources/SimpleCRUD.js"></script>
+    <script>
+        var telefonosUtiles = new AdminTelefonosUtiles();
+        window.onload = () =>{
+            telefonosUtiles.ini();
+        }
+    </script>
+    <%- include("templates/footer") %>
+</body>
+</html>

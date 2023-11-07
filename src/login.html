@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoquePerezHoy</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+
+    <link rel="stylesheet" href="/resources/cdns/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/cdns/all.min.css"/>
+    <link rel="stylesheet" href="/resources/cdns/brands.min.css"/>
+    <link rel="stylesheet" href="/styles/main.css">
+
+    <!--<link rel="manifest" href="/manifest.json">-->
+</head>
+<body>
+    <div class="container-fluid pt-5">
+        <div class="card m-auto" style="max-width:500px;">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="">Mail</label>
+                    <input type="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Contraseña</label>
+                    <input type="password" class="form-control">
+                </div>
+                <button class="btn btn-block btn-primary my-2" id="btIniciar">Iniciar sesión</button>
+            </div>
+        </div>
+    </div>
+    <script src="/resources/cdns/jquery-3.6.1.min.js"></script>
+    <script src="/scripts/Globals.js"></script>
+    <script src="/scripts/Login.js"></script>
+    <script>
+        const g = new Globals();
+        const login = new Login();
+        window.onload = () =>{
+            login.ini();
+        }
+    </script>
+</body>
+</html>
