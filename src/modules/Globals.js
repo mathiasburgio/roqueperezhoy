@@ -43,7 +43,7 @@ module.exports.getRandom = function(min, max){
 module.exports.getUrl = (id, nombre) =>{
     nombre = nombre || "";
     nombre = nombre.toLowerCase().replaceAll("á", "a").replaceAll("é", "e").replaceAll("í", "i").replaceAll("ó", "o").replaceAll("ú", "u")
-    return (id).toString() + "-" + nombre.replaceAll("[^A-Za-z0-9] ", "").replaceAll(" ", "-").replaceAll("'", "").replaceAll('"', "").replaceAll(',', "").replaceAll('.', "");
+    return (id).toString() + "-" + nombre.replaceAll("[^A-Za-z0-9] ", "").replaceAll(" ", "-").replaceAll("'", "").replaceAll('"', "").replaceAll(',', "").replaceAll('.', "").replaceAll("%", "");
 }
 
 module.exports.onlyAlphanumeric = (str, noSpaces = false) =>{
