@@ -48,7 +48,7 @@ class AdminPublicidades{
         $("[crud='btNew']").click(()=>{
             this.crud.onNew();
             if(g.mobile){ $("[tab-ref='datos']").click(); }
-            $("[name='pid']").val(0);
+            $("[name='pid']").val(40);
             $("[name='dias']").val(7);
             $("[crud='fields'] [name='prioridad']").val(3)
         });
@@ -196,8 +196,8 @@ class AdminPublicidades{
                 q:"Publicidades.modify", 
                 id: this.crud.element.id,
                 nombre: g.str_to_bd(data.nombre),
-                pid: px.id,
-                id_ref: this.id_ref,
+                pid: data.pid,
+                id_ref: 0,
                 imagen: data.imagen,
                 texto_redes: g.str_to_bd(data.texto_redes, true),
                 enlace: data.enlace,
