@@ -7,6 +7,8 @@ class AdminNoticias{
     async ini(){
         
         this.ck = await g.waitCKEDITOR('detalle', {extraPlugins: "youtube,colorbutton, _publi"});
+
+        
         this._ck = true;
         this.ck.setReadOnly(true);
         
@@ -153,6 +155,7 @@ class AdminNoticias{
             item.id = parseInt(item.id);
             item.titulo = g.bd_to_str(item.titulo)
             item.bajada = g.bd_to_str(item.bajada)
+            item.iframeExterno = g.bd_to_str(item.iframeExterno || "", true)
             item.pie_de_foto = g.bd_to_str(item.pie_de_foto)
             item.imagenes = JSON.parse(item.imagenes);
             item.detalle = g.bd_to_str(item.detalle, true);
@@ -178,6 +181,7 @@ class AdminNoticias{
                 bajada: g.str_to_bd(data.bajada),
                 fecha: data.fecha,
                 detalle: g.str_to_bd(data.detalle, true),
+                iframeExterno: g.str_to_bd(data.iframeExterno, true),
                 imagenes: JSON.stringify(data.imagenes),
                 pie_de_foto: g.str_to_bd(data.pie_de_foto),
                 video: data.video,
@@ -200,6 +204,7 @@ class AdminNoticias{
                 bajada: g.str_to_bd(data.bajada),
                 fecha: data.fecha,
                 detalle: g.str_to_bd(data.detalle, true),
+                iframeExterno: g.str_to_bd(data.iframeExterno, true),
                 imagenes: JSON.stringify(data.imagenes),
                 pie_de_foto: g.str_to_bd(data.pie_de_foto),
                 video: data.video,
@@ -212,6 +217,7 @@ class AdminNoticias{
                 principal: data.principal,
                 id: data.id
             });
+            console.log(ret1);
             modal.mensaje("Noticia modificada con éxito");
         }
         this.crud.afterSave(data);

@@ -26,6 +26,7 @@ class FrontNoticia{
         $("#nota [name='titulo']").html(g.bd_to_str(nx.titulo))
         $("#nota [name='bajada']").html(g.bd_to_str(nx.bajada))
         $("#nota [name='detalle']").html(g.bd_to_str(nx.detalle, true))
+        if(nx.iframeExterno.trim().length > 0) $("#nota [name='detalle']").append( g.bd_to_str(nx.iframeExterno, true) )
         $("[name='categoria']").html(nx.categoria.limpio)
         $("#nota [name='fecha']").html(fx.dia + " de " + fechas.MONTH_NAME[parseInt(fx.mes) -1] + " de " + fx.anio)
         if(nx.autor){
@@ -81,6 +82,25 @@ class FrontNoticia{
         $("[name='share_facebook']").prop("href", "https://www.facebook.com/sharer.php?u=https://roqueperezhoy.com.ar/noticia/" + nx.url)
         $("[name='share_whatsapp']").prop("href", "https://wa.me/?text=https://roqueperezhoy.com.ar/noticia/" + nx.url)
         $("[name='share_twitter']").prop("href", "https://twitter.com/intent/tweet?url=https://roqueperezhoy.com.ar/noticia/" + nx.url)
+
+        let cc = 2;//cada cuantos parrafos inyecta
+        let delta_cc = 0;
+        $("#nota [name='detalle'] p").each((ind, parrafo)=>{
+            let ele = $(parrafo);
+            let texto = ele.text().toString().trim();
+            if(!texto) return;
+            delta_cc++;
+            if(delta_cc == cc){
+                delta_cc = 0;
+                let publicidad = g.shuffle(this.datos.publicidades);
+                let foxy = `<div class='margin-auto text-center border p-1 aspect-ratio-169'>
+                    <img src='/images/subidas/${publicidad[0].imagen}' style='max-width:100%; max-height:100%;'>
+                    <div class='text-left'><small class='text-muted'>espacio publicitario</small></div>
+                </div>`
+                ele.after(foxy)
+            }
+
+        })
     }
     agregar_otras_noticias(ar){
         let cc = 0;
