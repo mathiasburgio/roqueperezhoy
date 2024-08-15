@@ -70,13 +70,15 @@ class FrontNoticias{
                 card.find("[name='etiqueta']").removeClass("d-none")
             }
 
-            this.cc_delta_publicidad++;
-            if(this.cc_delta_publicidad == this.cc_publicidad){
-                this.cc_delta_publicidad = 0;
-                let publicidad = g.shuffle(this.datos.publicidades);
-                $("#noticias [name='listado']").append(template);
-                let card = $("#noticias [name='listado'] .card").last();
-                card.html(`<div class="text-center"><img style='max-width:100%; max-height:200px' src='/images/subidas/${publicidad[0].imagen}'></div>`);
+            if(this.datos.publicidades.length > 0){
+                this.cc_delta_publicidad++;
+                if(this.cc_delta_publicidad == this.cc_publicidad){
+                    this.cc_delta_publicidad = 0;
+                    let publicidad = g.shuffle(this.datos.publicidades);
+                    $("#noticias [name='listado']").append(template);
+                    let card = $("#noticias [name='listado'] .card").last();
+                    card.html(`<div class="text-center"><img style='max-width:100%; max-height:200px' src='/images/subidas/${publicidad[0].imagen}'></div>`);
+                }
             }
         })
 

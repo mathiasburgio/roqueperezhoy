@@ -86,18 +86,20 @@ class FrontNoticia{
         let cc = 2;//cada cuantos parrafos inyecta
         let delta_cc = 0;
         $("#nota [name='detalle'] p").each((ind, parrafo)=>{
-            let ele = $(parrafo);
-            let texto = ele.text().toString().trim();
-            if(!texto) return;
-            delta_cc++;
-            if(delta_cc == cc){
-                delta_cc = 0;
-                let publicidad = g.shuffle(this.datos.publicidades);
-                let foxy = `<div class='margin-auto text-center border p-1 aspect-ratio-169'>
-                    <img src='/images/subidas/${publicidad[0].imagen}' style='max-width:100%; max-height:100%;'>
-                    <div class='text-left'><small class='text-muted'>espacio publicitario</small></div>
-                </div>`
-                ele.after(foxy)
+            if(this.datos.publicidades.length > 0){
+                let ele = $(parrafo);
+                let texto = ele.text().toString().trim();
+                if(!texto) return;
+                delta_cc++;
+                if(delta_cc == cc){
+                    delta_cc = 0;
+                    let publicidad = g.shuffle(this.datos.publicidades);
+                    let foxy = `<div class='margin-auto text-center border p-1 aspect-ratio-169'>
+                        <img src='/images/subidas/${publicidad[0].imagen}' style='max-width:100%; max-height:100%;'>
+                        <div class='text-left'><small class='text-muted'>espacio publicitario</small></div>
+                    </div>`
+                    ele.after(foxy)
+                }
             }
 
         })
