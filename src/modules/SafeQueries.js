@@ -16,12 +16,12 @@ module.exports = {
         p: ["titulo"]
     },
     "Noticias.insert":{
-        q: "INSERT INTO noticia SET titulo='@titulo', bajada='@bajada', fecha='@fecha', detalle='@detalle', imagenes='@imagenes', pie_de_foto='@pie_de_foto', video='@video', categoria='@categoria', tags='@tags', autor='@autor', fuente='@fuente', activa='@activa', marquesina='@marquesina', principal='@principal', eliminado=0",
-        p: ["titulo", "bajada", "fecha", "detalle", "imagenes", "pie_de_foto", "video", "categoria", "tags", "autor", "fuente", "activa", "marquesina", "principal"]
+        q: "INSERT INTO noticia SET titulo='@titulo', bajada='@bajada', fecha='@fecha', detalle='@detalle', iframeExterno='@iframeExterno', imagenes='@imagenes', pie_de_foto='@pie_de_foto', video='@video', categoria='@categoria', tags='@tags', autor='@autor', fuente='@fuente', activa='@activa', marquesina='@marquesina', principal='@principal', eliminado=0",
+        p: ["titulo", "bajada", "fecha", "detalle", "iframeExterno", "imagenes", "pie_de_foto", "video", "categoria", "tags", "autor", "fuente", "activa", "marquesina", "principal"]
     },
     "Noticias.update":{
-        q: "UPDATE noticia SET titulo='@titulo', bajada='@bajada', fecha='@fecha', detalle='@detalle', imagenes='@imagenes', pie_de_foto='@pie_de_foto', video='@video', categoria='@categoria', tags='@tags', autor='@autor', fuente='@fuente', activa='@activa', marquesina='@marquesina', principal='@principal' WHERE id=@id LIMIT 1",
-        p: ["titulo", "bajada", "fecha", "detalle", "imagenes", "pie_de_foto", "video", "categoria", "tags", "autor", "fuente", "activa", "marquesina", "principal", "id"]
+        q: "UPDATE noticia SET titulo='@titulo', bajada='@bajada', fecha='@fecha', detalle='@detalle', iframeExterno='@iframeExterno', imagenes='@imagenes', pie_de_foto='@pie_de_foto', video='@video', categoria='@categoria', tags='@tags', autor='@autor', fuente='@fuente', activa='@activa', marquesina='@marquesina', principal='@principal' WHERE id=@id LIMIT 1",
+        p: ["titulo", "bajada", "fecha", "detalle", "iframeExterno", "imagenes", "pie_de_foto", "video", "categoria", "tags", "autor", "fuente", "activa", "marquesina", "principal", "id"]
     },
     "Noticias.delete":{
         q: "UPDATE noticia SET eliminado = 1 WHERE id=@id LIMIT 1",
