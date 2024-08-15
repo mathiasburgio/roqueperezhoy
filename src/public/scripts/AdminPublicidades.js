@@ -10,8 +10,7 @@ class AdminPublicidades{
             let ret = await imagine.uploadFile({nombre: "imagen.jpg", archivo: file});
             imagine.setValues(dom, "/images/subidas/" + ret);
         }});
-        
-        $("[name='pid']").html( g.getOptions({ar: PUBLICIDADES, propText: "nombre", propId: "id", optionDisabled: true}) );
+    
 
         this.crud = new SimpleCRUD({
             list: [],
@@ -154,9 +153,9 @@ class AdminPublicidades{
 
         if(!data.dias || data.dias <= 0){modal.mensaje("Días de actividad no válido"); this.bandera = false; return;}
 
-        let px = PUBLICIDADES.find(p=>p.id === parseInt(data.pid))
+        //let px = PUBLICIDADES.find(p=>p.id === parseInt(data.pid))
 
-        if(px.id === 23 || px.id === 24){//POI de prueba
+        /* if(px.id === 23 || px.id === 24){//POI de prueba
             if(parseInt(data.dias) > 30){
                 modal.mensaje("Publicidad gratis como máximo permite 30 días."); 
                 this.bandera = false; 
@@ -168,7 +167,7 @@ class AdminPublicidades{
                 this.bandera = false; 
                 return;
             }
-        }
+        } */
 
         if(!data.fecha_inicio){modal.mensaje("Fecha inicio no válido"); this.bandera = false; return;}
         if(!data.fecha_fin){modal.mensaje("Fecha fin no válido"); this.bandera = false; return;}
@@ -178,15 +177,15 @@ class AdminPublicidades{
             let ret1 = await g.safeQuery({
                 q:"Publicidades.insert", 
                 nombre: g.str_to_bd(data.nombre),
-                pid: px.id,
-                id_ref: this.id_ref,
+                pid: data.pid,
+                id_ref: 0,
                 imagen: data.imagen,
                 texto_redes: g.str_to_bd(data.texto_redes, true),
                 enlace: data.enlace,
                 fecha_inicio: data.fecha_inicio,
                 dias: data.dias,
                 fecha_fin: data.fecha_fin,
-                valor: data.valor,
+                valor: 10,
                 prioridad: data.prioridad
             });
             console.log(ret1);
@@ -226,12 +225,12 @@ class AdminPublicidades{
             let fx = new Date(inicio);
             fx.setDate(fx.getDate() + dias);
             
-            let pid = $("[name='pid']").val();
+            /* let pid = $("[name='pid']").val();
             let px = PUBLICIDADES.find(p=>p.id === parseInt(pid))
-            let valor = parseInt(dias * px.precio / px.duracion);
+            let valor = parseInt(dias * px.precio / px.duracion); */
 
             $("[name='fecha_fin']").val(fechas.parse({val: fx, formato: fechas.FORMATO.USA_FECHA}));
-            $("[name='valor']").val(valor);
+            //$("[name='valor']").val(valor);
         }catch(err){
             alert(err);
         }

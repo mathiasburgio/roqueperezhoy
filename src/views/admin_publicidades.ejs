@@ -30,10 +30,10 @@
                                                 <button class="btn btn-light btn-block btn-sm" crud="btModify">Modificar</button>
                                             </div>
                                             <div class="col">
-                                                <button class="btn btn-light btn-block btn-sm" name="btResumen">Resumen</button>
+                                                <button class="btn btn-light btn-block btn-sm d-none" name="btResumen">Resumen</button>
                                             </div>
                                             <div class="col">
-                                                <button class="btn btn-info btn-block btn-sm" disabled name="btCompartir">Compartir</button>
+                                                <button class="btn btn-info btn-block btn-sm d-none" disabled name="btCompartir">Compartir</button>
                                             </div>
                                         </div>
                                         <div id="container-main-table" class="border"></div>
@@ -42,7 +42,11 @@
                                         <div class="form-group">
                                             <label for="">Tipo</label>
                                             <div class="input-group">
-                                                <select name="pid" class="form-control"></select>
+                                                <select name="pid" class="form-control">
+                                                    <option value="0" disabled selected>-SELECCIONAR-</option>
+                                                    <option value="21">POI</option>
+                                                    <option value="40">Publicidad general</option>
+                                                </select>
                                                 <div class="input-group-append">
                                                     <button class="btn btn-primary" name="btSeleccionarReferencia"><i class="fas fa-hand-pointer"></i></button>
                                                 </div>
